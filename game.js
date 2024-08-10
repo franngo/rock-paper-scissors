@@ -1,25 +1,46 @@
 let humanScore = 0;
 let computerScore = 0;
 
-console.log("Hello!' Let's play rock, paper & scissors. Please, type 1 if you wanna play.");
-//your option (rock, paper or scissors)
-//console.log(getHumanChoice());
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection,computerSelection);
+console.log("Hello!' Let's play rock, paper & scissors. Press the red button to play.");
+const button = document.querySelector("input");
+button.addEventListener("click", playGame);
+
+function playGame() {
+    console.log("**********************************************")
+    let humanSelection;
+    let computerSelection;
+    for(let i=0; i<5; i++) {
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    console.log("The final score is " + humanScore + " for you and " + computerScore + " for the computer");
+    if(humanScore>computerScore) {
+        console.log("You've won! You beat the computer!");
+    } else if (computerScore>humanScore) {
+        console.log("The computer has won! It has beaten you!");
+    } else {
+        console.log("It's a tie! Nobody has won!")
+    }
+    humanScore = 0;
+    computerScore = 0;
+}
 
 function playRound(humChoice, comChoice) {
     if(humChoice==comChoice) {
         console.log("It's a tie!");
         console.log("Your scores is " + humanScore + " and the computer score is " + computerScore);
+        console.log("----------------------------------------------");
     } else if((humChoice=="rock"&&comChoice=="scissors")||(humChoice=="paper"&&comChoice=="rock")||(humChoice=="scissors"&&comChoice=="paper")) {
         console.log("Congratulations! You won this round");
         humanScore++;
         console.log("Your scores is " + humanScore + " and the computer score is " + computerScore);
+        console.log("----------------------------------------------");
     } else {
         console.log("What a pity! You lost this round");
         computerScore++;
         console.log("Your scores is " + humanScore + " and the computer score is " + computerScore);
+        console.log("----------------------------------------------");
     }
 }
 
