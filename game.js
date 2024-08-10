@@ -22,6 +22,7 @@ function playGame() {
     } else {
         console.log("It's a tie! Nobody has won!")
     }
+    console.log("You can press the button again if you want to repeat the game!")
     humanScore = 0;
     computerScore = 0;
 }
