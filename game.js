@@ -1,7 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 
-console.log("Hello!' Let's play rock, paper & scissors. Press the red button to play.");
+console.log("Hello!' Let's play rock paper scissors. Press the red button to play.");
 const button = document.querySelector("input");
 button.addEventListener("click", playGame);
 
